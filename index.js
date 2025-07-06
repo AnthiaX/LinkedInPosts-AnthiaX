@@ -47,7 +47,11 @@ app.post('/post', async (req, res) => {
       }
     );
 
-    res.json({ status: 'success', message: 'Post sent to LinkedIn' });
+    res.json({ 
+      status: 'success', 
+      message: 'Post sent to LinkedIn', 
+      postedText: message 
+    });
   } catch (error) {
     console.error(error.response?.data || error.message);
     res.status(500).json({ error: 'Failed to post to LinkedIn' });
